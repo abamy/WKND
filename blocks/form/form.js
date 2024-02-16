@@ -108,8 +108,8 @@ function createLabel(fd, tagName = 'label') {
   label.setAttribute('for', fd.Id);
   label.className = 'field-label';
   label.textContent = fd.Label || '';
-  label.setAttribute('itemprop', 'Label');
-  label.setAttribute('itemtype', 'text');
+  label.setAttribute('data-aue-prop', 'Label');
+  label.setAttribute('data-aue-type', 'text');
   if (fd.Tooltip) {
     label.title = fd.Tooltip;
   }
@@ -120,8 +120,8 @@ function createHelpText(fd) {
   const div = document.createElement('div');
   div.className = 'field-description';
   div.setAttribute('aria-live', 'polite');
-  div.setAttribute('itemtype', 'text');
-  div.setAttribute('itemprop', 'Description');
+  div.setAttribute('data-aue-type', 'text');
+  div.setAttribute('data-aue-prop', 'Description');
   div.innerText = fd.Description;
   div.id = `${fd.Id}-description`;
   return div;
@@ -136,11 +136,11 @@ function generateItemId(id) {
 
 function createFieldWrapper(fd, tagName = 'div') {
   const fieldWrapper = document.createElement(tagName);
-  fieldWrapper.setAttribute('itemtype', 'component');
+  fieldWrapper.setAttribute('data-aue-type', 'component');
   fieldWrapper.setAttribute('itemid', generateItemId(fd.Id));
-  fieldWrapper.setAttribute('itemscope', '');
-  fieldWrapper.setAttribute('data-editor-itemlabel', fd.Label || fd.Name);
-  fieldWrapper.setAttribute('data-editor-itemmodel', fd.Type);
+  fieldWrapper.setAttribute('data-aue-scope', '');
+  fieldWrapper.setAttribute('data-aue-label', fd.Label || fd.Name);
+  fieldWrapper.setAttribute('data-aue-model', fd.Type);
   const nameStyle = fd.Name ? ` form-${fd.Name}` : '';
   const fieldId = `form-${fd.Type}-wrapper${nameStyle}`;
   fieldWrapper.className = fieldId;

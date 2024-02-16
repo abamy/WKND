@@ -1,6 +1,6 @@
 async function makeEditable() {
-    const aem = document.querySelector("meta[property='urn:adobe:aem:editor:aemconnection']");
-    if (aem) {
+    // const aem = document.querySelector("meta[property='urn:adobe:aem:editor:aemconnection']");
+    // if (aem) {
       const head = document.getElementsByTagName('head')[0];
   
       // Add URN Connection
@@ -13,7 +13,7 @@ async function makeEditable() {
       cors.src = 'https://universal-editor-service.experiencecloud.live/corslib/LATEST'
       cors.async = true;
       head.append(cors);
-    }
+    // }
   }
   
   makeEditable();

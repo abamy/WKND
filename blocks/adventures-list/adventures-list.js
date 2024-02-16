@@ -50,13 +50,13 @@ export default async function decorate($block) {
       // List item
       const $li = document.createElement("li");
       $li.className = "cmp-image-list__item";
-      $li.setAttribute("itemscope", "");
       $li.setAttribute(
-        "itemid",
+        "data-aue-resource",
         "urn:aemconnection:" + adventure["_path"] + "/jcr:content/data/master"
       );
-      $li.setAttribute("itemtype", "reference");
-      $li.setAttribute("itemfilter", "cf");
+      $li.setAttribute("data-aue-type", "reference");
+      $li.setAttribute("data-aue-filter", "cf");
+      $li.setAttribute("data-aue-label", adventure.title);
 
       // Article
       const $article = document.createElement("article");
@@ -74,8 +74,8 @@ export default async function decorate($block) {
       // Title
       const $title = document.createElement("span");
       $title.className = "cmp-image-list__item-title";
-      $title.setAttribute("itemprop", "title");
-      $title.setAttribute("itemtype", "text");
+      $title.setAttribute("data-aue-prop", "title");
+      $title.setAttribute("data-aue-type", "text");
       $title.textContent = adventure.title;
       $article.appendChild($title);
 
