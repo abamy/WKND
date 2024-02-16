@@ -23,7 +23,7 @@ export default async function decorate($block) {
 
   if (
     document.referrer.endsWith(
-      "https://exc-unifiedcontent.experience.adobe.net/"
+      ".experience.adobe.com"
     )
   ) {
     // Assume page is loaded within Universal Editor
@@ -45,7 +45,7 @@ export default async function decorate($block) {
     json.data.adventureList.items
   ) {
     const $ul = document.createElement("ul");
-    var adventures = json.data.adventureList.items;
+    let adventures = json.data.adventureList.items;
     adventures.forEach((adventure, index) => {
       // List item
       const $li = document.createElement("li");
